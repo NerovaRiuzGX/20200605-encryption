@@ -34,8 +34,9 @@ def encrypt_engine(source, key):
 
     current_path = generate_path(key_arr)
 
-    for algo in path[current_path]:
-        src_arr = algo.encrypt(src_arr, key_arr)
+    for i in range(2):
+        for algo in path[current_path]:
+            src_arr = algo.encrypt(src_arr, key_arr)
 
     return BASE64.encode(src_arr)
 
@@ -48,7 +49,8 @@ def decrypt_engine(source, key):
 
     current_path = generate_path(key_arr)
 
-    for algo in path[current_path][::-1]:
-        src_arr = algo.decrypt(src_arr, key_arr)
+    for i in range(2):
+        for algo in path[current_path][::-1]:
+            src_arr = algo.decrypt(src_arr, key_arr)
 
     return str(src_arr.tobytes(), "utf-8")
