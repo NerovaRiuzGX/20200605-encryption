@@ -128,4 +128,4 @@ dmypy.json
 *.txt
 *.pem
 *.png
-vscode/*
+vscode/
